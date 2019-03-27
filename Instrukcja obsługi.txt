@@ -6,3 +6,4 @@
 5. Po wygenerowaniu się raportu istnieje możliwość zapisania go w pliku CSV. 
    W tym celu należy kliknąć "Zapisz raport", w oknie dialogowym wybrać dla niego nazwę i lokalizację i zatwierdzić przyciskiem "Zapisz".
 6. W dowolnym momencie można dodać kolejne pliki z zamówieniami tak jak jest to opisane w punkcie 1. i generować nowe raporty.
+7. Dla każdego raportu, który posiada nagłówki kolumn istnieje możliwość posortowania danej kolumny alfabetycznie rosnąco lub malejąco poprzez kliknięcie na nagłówek kolumny, według której dane mają zostać posortowane.
