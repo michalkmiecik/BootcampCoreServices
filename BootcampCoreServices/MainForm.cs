@@ -270,6 +270,7 @@ namespace BootcampCoreServices
                 default:
                     break;
             }
+            btnExport.Enabled = true;
         }
 
         //when header isn't passed to function, becomes null and report's is being printed without ColumnHeaders

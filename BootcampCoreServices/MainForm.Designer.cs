@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.cbOptions = new System.Windows.Forms.ComboBox();
@@ -122,6 +121,7 @@
             // 
             // btnExport
             // 
+            this.btnExport.Enabled = false;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnExport.Location = new System.Drawing.Point(6, 180);
             this.btnExport.Name = "btnExport";
@@ -211,8 +211,8 @@
             // 
             this.dgvReport.AllowUserToAddRows = false;
             this.dgvReport.AllowUserToDeleteRows = false;
-            this.dgvReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Location = new System.Drawing.Point(233, 12);
