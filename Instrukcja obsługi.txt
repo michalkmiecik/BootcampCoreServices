@@ -1,1 +1,8 @@
-
+1. Po uruchomieniu programu należy kliknąć "Wybierz pliki...".
+2. W oknie dialogowym wybrać pliki wejściowe (csv, xml, json) i zatwierdzić przyciskiem "Otwórz".
+3. Z rozwijanego menu można wybrać odpowiedni raport do wygenerowania. 
+   Dla niektórych raportów istnieją parametry, które należy podać w polach poniżej menu.
+4. Po kliknięciu "Generuj raport" pojawi nam się wybrany raport dla wprowadzonych wcześniej danych.
+5. Po wygenerowaniu się raportu istnieje możliwość zapisania go w pliku CSV. 
+   W tym celu należy kliknąć "Zapisz raport", w oknie dialogowym wybrać dla niego nazwę i lokalizację i zatwierdzić przyciskiem "Zapisz".
+6. W dowolnym momencie można dodać kolejne pliki z zamówieniami tak jak jest to opisane w punkcie 1. i generować nowe raporty.
