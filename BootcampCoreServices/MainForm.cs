@@ -333,7 +333,7 @@ namespace BootcampCoreServices
                     for (int i = 0; i < dgvReport.ColumnCount; i++)
                     {
                         CommaOrNot = (i == dgvReport.ColumnCount - 1 ? string.Empty : ",");
-                        sw.Write(dgvReport.Columns[i].HeaderText + CommaOrNot);
+                        sw.WriteLine(dgvReport.Columns[i].HeaderText + CommaOrNot);
                     }
                 }
                 foreach (DataGridViewRow row in dgvReport.Rows)
