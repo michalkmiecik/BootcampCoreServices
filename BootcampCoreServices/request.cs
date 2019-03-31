@@ -40,11 +40,19 @@ namespace BootcampCoreServices
             this.price = double.Parse(array[4], CultureInfo.InvariantCulture);
         }
 
+        /// <summary>
+        /// Returns request as single string.
+        /// </summary>
+        /// <returns></returns>
         override public string ToString()
         {
             return String.Format("{0} {1} {2} {3} {4}", clientId, requestId, name, quantity, price);
         }
 
+        /// <summary>
+        /// Returns request as array of its fields.
+        /// </summary>
+        /// <returns></returns>
         public string[] ToArray()
         {
             string[] result = { clientId, requestId.ToString(), name, quantity.ToString(), price.ToString() };
