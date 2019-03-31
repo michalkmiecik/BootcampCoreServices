@@ -12,6 +12,7 @@ namespace BootcampCoreServices
     {
         #region Initialize 
 
+        //All requests loaded from that are valid goes to this collection.
         List<request> AllRequests;
 
         public MainForm()
@@ -24,6 +25,12 @@ namespace BootcampCoreServices
 
         #region FileInput
 
+        /// <summary>
+        /// Opens dialog for selecting input files. 
+        /// When files are selected calls function that handles reading contents of those files and when any request are loaded to collection of all requests, enables generating report.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             DialogResult result;
@@ -37,6 +44,12 @@ namespace BootcampCoreServices
                 gbReportOptions.Enabled = true;
         }
 
+        /// <summary>
+        /// Handles reading contents of files. 
+        /// Notifies user when file contains invalid requests.
+        /// Adds valid requests to collection od all requests.
+        /// </summary>
+        /// <param name="filePaths"></param>
         private void HandleFiles(string[] filePaths)
         {
             int selectedFileCount = filePaths.Length;
@@ -51,11 +64,16 @@ namespace BootcampCoreServices
                 AllRequests.AddRange(file.AllRequests);
             }
         }
-
         #endregion
 
         #region Generowanie Raportu
 
+        /// <summary>
+        /// Retrieves data from collection of all loaded requests and sends it to function that displays it onto report based on which option is selected from combobox.
+        /// Enables user to export generated report to a CSV file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
             string id = txtClientID.Text.Trim();
@@ -273,6 +291,13 @@ namespace BootcampCoreServices
             btnExport.Enabled = true;
         }
 
+        /// <summary>
+        /// Handles displaying retrieved data onto DatagridView element.
+        /// Clears old report, then adds new columns used in new report and then adds rows of data.
+        /// If no array of strings for column names is send, then columns do not have visible headers.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="header"></param>
         private void PrintOnReport(string[][] result, string[] header = null)
         {
             dgvReport.Rows.Clear();
@@ -284,7 +309,6 @@ namespace BootcampCoreServices
                 VisibleColumns = false;
 
             dgvReport.ColumnHeadersVisible = VisibleColumns;
-
 
             int columns = result[0].Length;
             int rows = result.Length;
@@ -311,6 +335,11 @@ namespace BootcampCoreServices
             }
         }
 
+        /// <summary>
+        /// Shows options for report generating when it needs those and hides options when not needed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cbOptions.SelectedIndex + 1;
@@ -318,6 +347,11 @@ namespace BootcampCoreServices
             gbRange.Visible = (index == 11);
         }
 
+        /// <summary>
+        /// Handles saving report to a CSV file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExport_Click(object sender, EventArgs e)
         {
             string CommaOrNot = string.Empty;

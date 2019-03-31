@@ -4,6 +4,10 @@ using System.Globalization;
 
 namespace BootcampCoreServices
 {
+    /// <summary>
+    /// Class that represents a single request in a inputfile.
+    /// Name of the class needs to be the same as name for request entry used in input file.
+    /// </summary>
     public class request
     {
         public string clientId { get; set; }
@@ -23,6 +27,10 @@ namespace BootcampCoreServices
             this.price = price;
         }
 
+        /// <summary>
+        /// Method used in readign from CSV file.
+        /// </summary>
+        /// <param name="array"></param>
         public request(string[] array)
         {
             this.clientId = array[0];
@@ -44,6 +52,9 @@ namespace BootcampCoreServices
         }
     }
 
+    /// <summary>
+    /// Class for JSON deserializer used as root element.
+    /// </summary>
     public class Root
     {
         public List<request> requests { get; set; }

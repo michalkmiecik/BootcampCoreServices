@@ -75,7 +75,10 @@ namespace BootcampCoreServices
             Root root = JsonConvert.DeserializeObject<Root>(jsonString);
             ValidateAndAddToDatabase(root.requests);
         }
-
+        /// <summary>
+        /// Loads data from CSV file with given path to a file.
+        /// </summary>
+        /// <param name="filePath"></param>
         private void LoadCSVFromFileToDatabase(string filePath)
         {
             List<request> requests = new List<request>();
@@ -92,7 +95,10 @@ namespace BootcampCoreServices
             }
             ValidateAndAddToDatabase(requests);
         }
-
+        /// <summary>
+        /// Method for checking if data read from a file is valid and if it is, adding it to a collection of all requests.
+        /// </summary>
+        /// <param name="data">List of requests that need to be validated before adding to a collection of all requests.</param>
         private void ValidateAndAddToDatabase(List<request> data)
         {
             foreach (request r in data)
