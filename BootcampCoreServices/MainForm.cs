@@ -273,10 +273,8 @@ namespace BootcampCoreServices
             btnExport.Enabled = true;
         }
 
-        //when header isn't passed to function, becomes null and report's is being printed without ColumnHeaders
         private void PrintOnReport(string[][] result, string[] header = null)
         {
-            //erease report
             dgvReport.Rows.Clear();
             dgvReport.Columns.Clear();
 
@@ -291,7 +289,6 @@ namespace BootcampCoreServices
             int columns = result[0].Length;
             int rows = result.Length;
 
-            //prepare columns required for displaying certain result
             for (int i = 0; i < columns; i++)
             {
                 DataGridViewColumn dcol = new DataGridViewColumn
@@ -308,12 +305,10 @@ namespace BootcampCoreServices
                 dgvReport.Columns.Add(dcol);
             }
 
-            //write all rows to the report and resizes columns to the content
             for (int i = 0; i < rows; i++)
             {
                 dgvReport.Rows.Add(result[i]);
             }
-
         }
 
         private void cbOptions_SelectedIndexChanged(object sender, EventArgs e)
@@ -333,9 +328,13 @@ namespace BootcampCoreServices
             {
                 StreamWriter sw = new StreamWriter(sfd.OpenFile());
 
-                if (VisibleColumnHeaders) //add column headers if visible in report
+                if (VisibleColumnHeaders)
                 {
-
+                    for (int i = 0; i < dgvReport.ColumnCount; i++)
+                    {
+                        CommaOrNot = (i == dgvReport.ColumnCount - 1 ? string.Empty : ",");
+                        sw.Write(dgvReport.Columns[i].HeaderText + CommaOrNot);
+                    }
                 }
                 foreach (DataGridViewRow row in dgvReport.Rows)
                 {
